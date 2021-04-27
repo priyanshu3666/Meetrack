@@ -1,0 +1,82 @@
+ {% extends 'base.html' %}
+ {% block title %} About: Meetrack{% endblock title %}
+ {% block aboutActive %} active{% endblock aboutActive %}
+ {% load static %}
+{% block content %}
+        <style>
+            .container{
+                margin-top: 30px;
+                box-shadow: 5px 5px 5px 5px grey;
+                height: 90vh;
+                padding: 20px;
+                background-color: antiquewhite;
+            }
+            .card{
+                padding: 10px;
+                border-radius: 20px;
+            }
+            .card a{
+                border: 2px solid black;
+                border-radius: 10px;
+                background-color: cornflowerblue;
+                padding: 8px 15px;
+                color: white;
+                text-align: center;
+                box-shadow: 5px 5px 5px 5px grey;
+            }
+            .card a:hover{
+                background-color: burlywood;
+                color: black;
+            }
+        </style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src= "{% static 'images/181500332.jpg' %}" class="card-img-top" alt="..." width="200px" height="230px">
+                    <div class="card-body my-0">
+                        <h5 class="card-title">
+                            Krishna Kant Sharma
+                        </h5>
+                        <p> <span style="font-weight: 600; text-decoration: underline;">Software Engineer Trainee at Devslane</span> <br> Roll number : 181500332 <br> Batch: 2022 <br>Computer Science(IOT)</p>
+                        <a href="https://github.com/krishnasharma5547" alt="" target="_blank">Github</a>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src= "{% static 'images/181500515.jpg' %}" class="card-img-top" alt="..." width="200px" height="230px">
+                    <div class="card-body">
+                        <h5 class="card-title">Priyanshu Shukla</h5>
+                        <p>Roll number : 181500515 <br> Batch: 2022</p>
+                        <p class="card-text">Computer Science</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="https://github.com/priyanshu3666" class="card-link" target="_blank">Github</a>
+                        
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                   <img src= "{% static 'images/181500061.jpg' %}" class="card-img-top" alt="..." width="200px" height="230px">
+                    <div class="card-body">
+                        <h5 class="card-title">Akashi Gupta</h5>
+                        <p>Roll number : 181500061 <br> Batch: 2022</p>
+                        <p class="card-text">Computer Science(IOT)</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="https://github.com/akashi-gupta" class="card-link" target="_blank">Github</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

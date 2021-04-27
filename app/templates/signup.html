@@ -1,0 +1,85 @@
+
+   {% extends 'base.html' %}
+    {% block title %} Signup: Meetrack {% endblock title %}
+    {% block signupActive %} active{% endblock signupActive %}
+    {% load static %}
+{% block content %}
+
+<style>
+
+  {% comment %} body{
+    background-color:rgb(78, 121, 122)
+  } {% endcomment %}
+  body {
+        background-image: url("{% static 'images/px.jpg' %}");
+        background-position: top 50px;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+  .helptext{
+    visibility: hidden;
+    display:none;
+  }
+  .col-lg-5{
+    background-color:transparent;
+    font-weight: 600;
+    color: white !important;
+    box-shadow:5px 5px 5px 5px red;
+  }
+  .p-4{
+    opacity:0.7;
+  }
+  .shadow-box{
+    box-shadow:5px 5px 5px 5px rgb(185, 174, 174);
+  }
+  
+  form ul li{
+    display:none;
+  }
+  #id_password1{
+    margin-left:120px;
+  }
+  #id_password2{
+    margin-left:22px;
+  }
+  #id_username{
+    margin-left:116px;
+  }
+  
+  </style>
+
+
+
+{% if form.errors %}
+<div class="alert alert-danger alert-dismissible col-12 mx-1" role="alert">
+    <div id="form_errors">
+        {% for key, value in form.errors.items %}
+            <span class="fieldWrapper">
+                {{ key }}:{{ value }}
+            </span>
+        {% endfor %}
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+
+<div class="containter pt-4">
+  <div class="col-lg-5 shadow-box  mx-auto p-0">
+    <div class="alert alert-success">
+      <h2>Create Account</h2>
+    </div>
+    <div class="p-4">
+      <form method="post" action="/signup/" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <hr>
+        <input class="btn btn-success" type="submit" value="Create Account">
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

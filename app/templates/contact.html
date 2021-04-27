@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %} Contact: Meetrack {% endblock title %}
+{% block contactActive %} active{% endblock contactActive %}
+{% load static %}
+{% block content %}
+
+
+<style>
+    body {
+        background-image: url("{% static 'images/background.jpg' %}");
+        background-position: top 50px;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .contact_form {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: rgb(223, 228, 241);
+        border: 2px solid black;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px 5px rgb(116, 119, 119);
+    }
+    .card-body a{
+        padding: 10px 20px;
+        background-color: aquamarine;
+        border-radius: 10px;
+        margin-top: 5px;
+
+    }
+    .card{
+        box-shadow: 5px 5px 5px 5px rgb(116, 119, 119);
+
+    }
+
+    .card-body a:hover{
+        background-color: cornflowerblue;
+        text-decoration: none;
+        color: white;
+    }
+</style>
+
+{% for message in messages %}
+<div class="container-fluid p-0">
+  <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+  </div>
+</div>
+{% endfor %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+
+        </div>
+        <div class="col-md-7 ">
+            <div class="contact_form">
+                {% csrf_token %}
+                <form action="/contact/" method="get">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="contact_name" class="form-label">Name: </label>
+                        <input type="text" class="form-control" id="contact_name" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Write Something For us</label>
+                        <textarea class="form-control" id="text" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+            <div class="card w-100 mt-4">
+                <div class="card-body">
+                    <h5 class="card-title" target="_blank">Contact US</h5>
+                    <p class="card-text" target="_blank">contact details</p>
+                    <a href="tel:8445080110" target="_blank">Call US</a>
+                    <a href="callto:8445080110" target="_blank">Skype Call</a>
+                    <a href = "mailto: kksharmaz786@gmail.com" target="_blank">Send Mail</a>
+                    <a href="https://www.facebook.com/profile.php?id=100008457829281" target="_blank">Facebook</a>
+                    <a href="https://twitter.com/krishna38748795" target="_blank">Tweet</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    {% endblock %}
